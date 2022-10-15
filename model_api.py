@@ -44,3 +44,6 @@ def predict():
 
     # returning the response object as json
     return jsonify(response)
+
+
+app.run(debug=True, port=33507)
