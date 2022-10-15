@@ -46,4 +46,6 @@ def predict():
     return jsonify(response)
 
 
-app.run(port=33507)
+if __name__ == "__main__":
+    from waitress import serve
+    serve(app)
