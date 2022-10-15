@@ -1,11 +1,8 @@
 """http://web.univ-ubs.fr/lmba/lardjane/python/c4.pdf -> page 260"""
 
 from flask import Flask, request, jsonify, Response
-import os
 import numpy as np
-import tensorflow as tf
 import cv2
-from tensorflow.keras import backend as K
 import segmentation_models as sm
 
 
