@@ -28,7 +28,8 @@ score_IoU = tf.keras.metrics.OneHotMeanIoU(
 
 # Chargement du modèle
 model = tf.keras.models.load_model(
-    "checkpoints"+f'/unet_vgg16_aug.h5', custom_objects={'mean_IoU': score_IoU, 'dice_coeff': dice_coeff})
+    'unet_vgg16_aug.h5',
+    custom_objects={'mean_IoU': score_IoU, 'dice_coeff': dice_coeff})
 
 
 # defining a route for only post requests
