@@ -1,5 +1,7 @@
 gunicorn
+waitress
 Flask
 numpy
-opencv-python
+opencv-python-headless
+tensorflow-cpu
 segmentation-models

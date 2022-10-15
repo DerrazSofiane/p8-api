@@ -3,11 +3,12 @@
 from flask import Flask, request, jsonify, Response
 import numpy as np
 import cv2
+import os
 import segmentation_models as sm
 
 
 app = Flask(__name__)
-
+PORT = os.environ.get("PORT")
 
 # Chargement du modèle
 model = sm.Unet('vgg16', classes=8)
@@ -44,3 +45,9 @@ def predict():
 
     # returning the response object as json
     return jsonify(response)
+
+
+if __name__ == "__main__":
+    app.run(port=PORT)
+#     from waitress import serve
+#     serve(app, host='0.0.0.0')
