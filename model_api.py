@@ -6,30 +6,16 @@ import numpy as np
 import tensorflow as tf
 import cv2
 from tensorflow.keras import backend as K
-from tensorflow.keras.preprocessing import image
-
+import segmentation_models as sm
 
 
 app = Flask(__name__)
 
 
-def dice_coeff(y_true, y_pred):
-    smooth = 1.
-    y_true_f = K.flatten(y_true)
-    y_pred_f = K.flatten(y_pred)
-    intersection = K.sum(y_true_f * y_pred_f)
-    score = (2. * intersection + smooth) / (K.sum(y_true_f) + K.sum(y_pred_f) + smooth)
-    return score
-
-
-score_IoU = tf.keras.metrics.OneHotMeanIoU(
-    num_classes=8,
-    name='mean_IoU')
-
 # Chargement du modèle
-model = tf.keras.models.load_model(
-    'unet_vgg16_aug.h5',
-    custom_objects={'mean_IoU': score_IoU, 'dice_coeff': dice_coeff})
+model = sm.Unet('vgg16', classes=8)
+model.load_weights(
+    "checkpoints"+f'/unet_vgg16_aug_weights.h5')
 
 
 # defining a route for only post requests
