@@ -1,5 +1,6 @@
 gunicorn
 Flask
 numpy
+opencv-contrib-python
 opencv-python
 segmentation-models
