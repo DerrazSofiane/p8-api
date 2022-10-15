@@ -14,8 +14,7 @@ app = Flask(__name__)
 
 # Chargement du modèle
 model = sm.Unet('vgg16', classes=8)
-model.load_weights(
-    "checkpoints"+f'/unet_vgg16_aug_weights.h5')
+model.load_weights('unet_vgg16_aug_weights.h5')
 
 
 # defining a route for only post requests
