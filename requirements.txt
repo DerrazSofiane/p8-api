@@ -1,5 +1,4 @@
 Flask
 numpy
-tensorflow
 opencv-python
 segmentation-models
